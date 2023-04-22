@@ -1,6 +1,7 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD
  * interactive - returns true if shell is in interactive mode
  * @info: struct address
  *
@@ -9,6 +10,16 @@
 int interactive(info_t *info)
 {
 	return (isatty(STDIN_FILENO)&& info->readfd <=2);
+=======
+ * interactive - returns true if shell is interactive mode
+ * @info: struct address
+ *
+ * Return: 1 if interactive mode, 0 otherwise
+ */
+int interactive(info_t *info)
+{
+	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+>>>>>>> 99ece3e74421771bd45131665dd527ec877e3382
 }
 
 /**
@@ -20,12 +31,18 @@ int interactive(info_t *info)
 int is_delim(char c, char *delim)
 {
 	while (*delim)
+<<<<<<< HEAD
 		if (*delim++ ==c)
 			return (1)
+=======
+		if (*delim++ == c)
+			return (1);
+>>>>>>> 99ece3e74421771bd45131665dd527ec877e3382
 	return (0);
 }
 
 /**
+<<<<<<< HEAD
  * _isalpha - checks for alphabetic character
  * @c: The character to input
  * Return: 1 if c is alphabetic, 0 otherwise
@@ -46,14 +63,44 @@ int_isalpha(intc)
  */
 
 int_atoi(char *s)
+=======
+ *_isalpha - checks for alphabetic character
+ *@c: The character to input
+ *Return: 1 if c is alphabetic, 0 otherwise
+ */
+
+int _isalpha(int c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
+}
+
+/**
+ *_atoi - converts a string to an integer
+ *@s: the string to be converted
+ *Return: 0 if no numbers in string, converted number otherwise
+ */
+
+int _atoi(char *s)
+>>>>>>> 99ece3e74421771bd45131665dd527ec877e3382
 {
 	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
 
+<<<<<<< HEAD
 	for (i = 0; s[i] != '\0' && flag !=2; i++)
 	{
 		if (s[i] == '-')
 			sign *= -1
+=======
+	for (i = 0;  s[i] != '\0' && flag != 2; i++)
+	{
+		if (s[i] == '-')
+			sign *= -1;
+
+>>>>>>> 99ece3e74421771bd45131665dd527ec877e3382
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			flag = 1;
